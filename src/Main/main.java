@@ -86,11 +86,10 @@ public class main extends Applet implements Runnable, KeyListener {
 			//System.out.println(Controller.isZPress());
 			
 			// 新城表示
-			SinjouPlayer.drawPlayer(OffGraphic);
+			SinjouPlayer.draw(OffGraphic);
 
 			// 画面の強制更新
 			repaint();
-			Controller.resetButton();
 
 			try {
 				// 0.016秒間(約1フレーム)スリープ。これを忘れるとハングアップする

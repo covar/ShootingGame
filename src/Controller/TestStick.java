@@ -1,87 +1,151 @@
-/*
-package Controller;
-
-import java.awt.event.*;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-import junit.framework.JUnit4TestAdapter;
-import junit.samples.money.IMoney;
-import junit.samples.money.Money;
-import junit.samples.money.MoneyBag;
-import org.junit.Before;
-import org.junit.Test;
-
-public class TestStick{
-    static private Stick stick;
-
-    public static junit.framework.Test suite() {
-	return new JUnit4TestAdapter(TestStick.class);
-    }
-
-    @Before public void setUp() {
-	stick = new Stick();
-    }
-
-    @Test public void dnewtralDirectionTest(){
-	assertEquals(5,stick.getDirection());
-    }
-
-    @Test public void upDirectionTest(){
-	stick.keyPressed(KeyEvent.VK_UP);
-	stick.decideDirection();
-	assertEquals(8,stick.getDirection());
-    }
-
-    @Test public void downDirectionTest(){
-	stick.keyPressed(KeyEvent.VK_DOWN);
-	stick.decideDirection();
-	assertEquals(2,stick.getDirection());
-    }
-
-    @Test public void rightDirectionTest(){
-	stick.keyPressed(KeyEvent.VK_RIGHT);
-	stick.decideDirection();
-	assertEquals(6,stick.getDirection());
-    }
-
-    @Test public void leftDirectionTest(){
-	stick.keyPressed(KeyEvent.VK_LEFT);
-	stick.decideDirection();
-	assertEquals(4,stick.getDirection());
-    }
-
-    @Test public void directionUpRightTest(){
-	stick.keyPressed(KeyEvent.VK_UP);
-	stick.keyPressed(KeyEvent.VK_RIGHT);
-	stick.decideDirection();
-	assertEquals(9,stick.getDirection());
-    }
-
-    @Test public void directionUpLeftTest(){
-	stick.keyPressed(KeyEvent.VK_LEFT);
-	stick.keyPressed(KeyEvent.VK_UP);
-	stick.decideDirection();
-	assertEquals(7,stick.getDirection());
-    }
-
-    @Test public void directionDownRightTest(){
-	stick.keyPressed(KeyEvent.VK_RIGHT);
-	stick.keyPressed(KeyEvent.VK_DOWN);
-	stick.decideDirection();
-	assertEquals(3,stick.getDirection());
-    }
-
-    @Test public void directionTest(){
-	stick.keyPressed(KeyEvent.VK_LEFT);
-	stick.keyPressed(KeyEvent.VK_DOWN);
-	stick.decideDirection();
-	assertEquals(1,stick.getDirection());
-    }
-
-
-
-
-}
-*/
+//package Controller;
+//
+//import java.awt.event.*;
+//
+//import static org.junit.Assert.*;
+//import org.junit.*;
+//import junit.framework.JUnit4TestAdapter;
+//
+//public class TestStick{
+//    static private Stick stick;
+//
+//    public static junit.framework.Test suite() {
+//	return new JUnit4TestAdapter(TestStick.class);
+//    }
+//
+//    @Before public void setUp() {
+//	stick = new Stick(KeyEvent.VK_UP,KeyEvent.VK_DOWN,KeyEvent.VK_RIGHT,KeyEvent.VK_LEFT);
+//    }
+//
+//    @Test public void newtralDirectionTest(){
+//	assertEquals(5,stick.getDirection());
+//    }
+//
+//    @Test public void upDirectionTest(){
+//	stick.buttonPress(KeyEvent.VK_UP);
+//	stick.decideDirection();
+//	assertEquals(8,stick.getDirection());
+//    }
+//
+//    @Test public void downDirectionTest(){
+//	stick.buttonPress(KeyEvent.VK_DOWN);
+//	stick.decideDirection();
+//	assertEquals(2,stick.getDirection());
+//    }
+//
+//    @Test public void rightDirectionTest(){
+//	stick.buttonPress(KeyEvent.VK_RIGHT);
+//	stick.decideDirection();
+//	assertEquals(6,stick.getDirection());
+//    }
+//
+//    @Test public void leftDirectionTest(){
+//	stick.buttonPress(KeyEvent.VK_LEFT);
+//	stick.decideDirection();
+//	assertEquals(4,stick.getDirection());
+//    }
+//
+//    @Test public void directionUpRightTest(){
+//	stick.buttonPress(KeyEvent.VK_UP);
+//	stick.buttonPress(KeyEvent.VK_RIGHT);
+//	stick.decideDirection();
+//	assertEquals(9,stick.getDirection());
+//    }
+//
+//    @Test public void directionUpLeftTest(){
+//	stick.buttonPress(KeyEvent.VK_LEFT);
+//	stick.buttonPress(KeyEvent.VK_UP);
+//	stick.decideDirection();
+//	assertEquals(7,stick.getDirection());
+//    }
+//
+//    @Test public void directionDownRightTest(){
+//	stick.buttonPress(KeyEvent.VK_RIGHT);
+//	stick.buttonPress(KeyEvent.VK_DOWN);
+//	stick.decideDirection();
+//	assertEquals(3,stick.getDirection());
+//    }
+//
+//    @Test public void directionDownLeftTest(){
+//	stick.buttonPress(KeyEvent.VK_LEFT);
+//	stick.buttonPress(KeyEvent.VK_DOWN);
+//	stick.decideDirection();
+//	assertEquals(1,stick.getDirection());
+//    }
+//
+//    @Test public void direction3DTest(){
+//	stick.buttonPress(KeyEvent.VK_LEFT);
+//	stick.buttonPress(KeyEvent.VK_DOWN);
+//	stick.buttonPress(KeyEvent.VK_UP);
+//	stick.decideDirection();
+//	assertEquals(5,stick.getDirection());
+//    }
+//
+//
+//    @Test public void directionManyTest(){
+//	stick.buttonPress(KeyEvent.VK_UP);
+//	stick.decideDirection();
+//	assertEquals(8,stick.getDirection());
+//	stick.buttonRelease(KeyEvent.VK_UP);
+//
+//	stick.buttonPress(KeyEvent.VK_DOWN);
+//	stick.decideDirection();
+//	assertEquals(2,stick.getDirection());
+//	stick.buttonRelease(KeyEvent.VK_DOWN);
+//
+//	stick.buttonPress(KeyEvent.VK_RIGHT);
+//	stick.decideDirection();
+//	assertEquals(6,stick.getDirection());
+//	stick.buttonRelease(KeyEvent.VK_RIGHT);
+//
+//	stick.buttonPress(KeyEvent.VK_LEFT);
+//	stick.decideDirection();
+//	assertEquals(4,stick.getDirection());
+//	stick.buttonRelease(KeyEvent.VK_LEFT);
+//
+//	stick.buttonPress(KeyEvent.VK_UP);
+//	stick.buttonPress(KeyEvent.VK_RIGHT);
+//	stick.decideDirection();
+//	assertEquals(9,stick.getDirection());
+//	stick.buttonRelease(KeyEvent.VK_RIGHT);
+//
+//	stick.buttonPress(KeyEvent.VK_LEFT);
+//	stick.buttonPress(KeyEvent.VK_UP);
+//	stick.decideDirection();
+//	assertEquals(7,stick.getDirection());
+//	stick.buttonRelease(KeyEvent.VK_UP);
+//	stick.buttonRelease(KeyEvent.VK_LEFT);
+//
+//	stick.buttonPress(KeyEvent.VK_RIGHT);
+//	stick.buttonPress(KeyEvent.VK_DOWN);
+//	stick.decideDirection();
+//	assertEquals(3,stick.getDirection());
+//	stick.buttonRelease(KeyEvent.VK_RIGHT);
+//
+//	stick.buttonPress(KeyEvent.VK_LEFT);
+//	stick.buttonPress(KeyEvent.VK_DOWN);
+//	stick.decideDirection();
+//	assertEquals(1,stick.getDirection());
+//	stick.buttonRelease(KeyEvent.VK_LEFT);
+//	stick.buttonRelease(KeyEvent.VK_DOWN);
+//
+//	stick.buttonPress(KeyEvent.VK_LEFT);
+//	stick.buttonPress(KeyEvent.VK_DOWN);
+//	stick.buttonPress(KeyEvent.VK_UP);
+//	stick.decideDirection();
+//	assertEquals(5,stick.getDirection());
+//	stick.buttonRelease(KeyEvent.VK_UP);
+//	stick.buttonRelease(KeyEvent.VK_DOWN);
+//	stick.buttonRelease(KeyEvent.VK_LEFT);
+//
+//	stick.buttonPress(KeyEvent.VK_LEFT);
+//	stick.buttonPress(KeyEvent.VK_DOWN);
+//	stick.decideDirection();
+//	assertEquals(1,stick.getDirection());
+//	stick.buttonRelease(KeyEvent.VK_LEFT);
+//	stick.buttonRelease(KeyEvent.VK_DOWN);
+//    }
+//
+//
+//
+//}

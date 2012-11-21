@@ -1,40 +1,14 @@
 package Main;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
 
 
-public class Bullet {
-	int X, Y;
-	private boolean Exist;
+
+public class Bullet extends MoveObject{
 	
-	public boolean isExist() {
-		return Exist;
-	}
-
-	public void setExist(boolean flag) {
-		this.Exist = flag;
-	}
-
-	public int getX() {
-		return X;
-	}
-
-	public void setX(int x) {
-		this.X = x;
-	}
-
-	public int getY() {
-		return Y;
-	}
-
-	public void setY(int y) {
-		this.Y = y;
-	}
-
 	public Bullet(int x, int y) {
-		setX(x);
-		setY(y);
-		setExist(true);
+		super(x, y, new Dimension(5,5), new Dimension(500,500));
 	}
 	
 	public void paint(Graphics graphic) {
