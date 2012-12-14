@@ -26,6 +26,24 @@ public class MoveObject {
 		return ObjectDimension;
 	}
 
+	public int getObjectDimensionHeight() {
+		return ObjectDimension.height;
+	}
+
+	public int getObjectDimensionWidth() {
+		return ObjectDimension.width;
+	}
+
+	public int getGameDimensionHeight() {
+		return GameDimension.height;
+	}
+
+	public int getGameDimensionWidth() {
+		return GameDimension.width;
+	}
+
+	
+
 	public void setObjectDimension(Dimension objectDimension) {
 		ObjectDimension = objectDimension;
 	}
@@ -38,32 +56,21 @@ public class MoveObject {
 		GameDimension = gameDimension;
 	}
 	
-	public int getY() {
-		return Y;
-	}
-
-	public void setY(int y) {
-		this.Y = y;
-		if (getY() > GameDimension.height - ObjectDimension.height / 2) {
-			this.Y = GameDimension.height - ObjectDimension.height / 2;
-		}
-		if (getY() < 0 - ObjectDimension.height / 2) {
-			this.Y = 0 - ObjectDimension.height / 2;
-		}
-	}
 
 	public int getX() {
 		return X;
 	}
 
 	public void setX(int x) {
-		this.X = x;
-		if (getX() > GameDimension.width - ObjectDimension.width / 2) {
-			this.X = GameDimension.width - ObjectDimension.width / 2;
-		}
-		if (getX() < 0 - ObjectDimension.width / 2) {
-			this.X = 0 - ObjectDimension.width / 2;
-		}
+		X = x;
+	}
+
+	public int getY() {
+		return Y;
+	}
+
+	public void setY(int y) {
+		Y = y;
 	}
 
 	public boolean isExist() {
@@ -72,6 +79,16 @@ public class MoveObject {
 
 	public void setExist(boolean exist) {
 		Exist = exist;
+	}
+	
+	public boolean isOut(){
+		if( (getX() > GameDimension.width - ObjectDimension.width / 2) 
+		 || (getX() < 0 - ObjectDimension.width / 2) 
+		 || (getY() > GameDimension.height - ObjectDimension.height / 2) 
+		 || (getY() < 0 - ObjectDimension.height / 2) ){
+			return true;
+		}
+		return false;
 	}
 
 	

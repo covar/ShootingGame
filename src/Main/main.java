@@ -8,6 +8,10 @@ package Main;
 import java.applet.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 import Controller.Controller;
 
@@ -20,7 +24,7 @@ public class main extends Applet implements Runnable, KeyListener {
 	
 	private Controller Controller;
 
-	Player SinjouPlayer;
+	Player ThePlayer;
 
 	Thread thread = null;
 
@@ -31,9 +35,14 @@ public class main extends Applet implements Runnable, KeyListener {
 
 	public void init() {
 
-		// 新城の生成
-		SinjouPlayer = new Player(10, 10, getImage(getCodeBase(), "002.png"),new Dimension(GAME_WIDTH,GAME_HEIGHT));
-
+		// 自機の生成
+		try {
+			ThePlayer = new Player(10, 10, ImageIO.read(new File("002.png")),new Dimension(GAME_WIDTH,GAME_HEIGHT));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		Controller = new Controller();
 
 		addKeyListener(this);
@@ -42,6 +51,7 @@ public class main extends Applet implements Runnable, KeyListener {
 		// グラフィックコンテキスト取得
 		OffGraphic = OffImage.getGraphics();
 
+		
 	}
 
 	// アプレットが表示されると呼び出される
@@ -77,16 +87,16 @@ public class main extends Applet implements Runnable, KeyListener {
 			clearBuffer(OffGraphic);
 
 
-			SinjouPlayer.move(Controller.getStickDirection());
+			ThePlayer.move(Controller.getStickDirection());
 			
-			SinjouPlayer.shot(Controller.isZPress());
+			ThePlayer.shot(Controller.isZPress());
 			
-			SinjouPlayer.checkExist();
+			ThePlayer.checkExist();
 			
 			//System.out.println(Controller.isZPress());
 			
 			// 新城表示
-			SinjouPlayer.draw(OffGraphic);
+			ThePlayer.draw(OffGraphic);
 
 			// 画面の強制更新
 			repaint();

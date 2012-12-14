@@ -3,7 +3,7 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 
 
-public class BulletsManager {
+public class BulletsManager implements MoveObjectManager{
 	private ArrayList<Bullet> Bullets;
 
 	public BulletsManager() {
@@ -35,8 +35,7 @@ public class BulletsManager {
 		Bullet Temp;
 		for (int i = 0; i < Bullets.size(); i++) {
 			Temp = Bullets.get(i);
-			Temp.checkExist();
-			if( !Temp.isExist() ){
+			if( Temp.isOut() ){
 				Bullets.remove(i);
 			}
 		}

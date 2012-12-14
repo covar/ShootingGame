@@ -20,9 +20,4 @@ public class Bullet extends MoveObject{
 		setY(getY() - 10);
 	}
 	
-	public void checkExist(){
-		if(getY()<0){
-			setExist(false);
-		}
-	}
 }
